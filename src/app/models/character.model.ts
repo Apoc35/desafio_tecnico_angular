@@ -1,5 +1,5 @@
 //interface para todos os personagens
-import { Location } from './location.model';
+import { Location } from './location';
 import { Origin } from './origin.model';
 
 export interface Character {
