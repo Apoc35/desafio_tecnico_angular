@@ -5,15 +5,16 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CharacterCardComponent } from './components/characterCard/character-card/character-card.component';
-import { ContainerComponent } from './components/container/container.component';
-
+import { CharacterCardComponent } from './shared/character-card/character-card.component';
+import { ContainerComponent } from './shared/container/container.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CharacterCardComponent,
     ContainerComponent,
+    MainPageComponent,
   ],
   imports: [
     HttpClientModule,
