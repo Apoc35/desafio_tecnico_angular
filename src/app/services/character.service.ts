@@ -1,20 +1,21 @@
+import { CharactersRepository } from './../repository/character.repository';
+import { take } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { Character } from '../models/character';
+import { Results } from '../models/results.model';
 
 @Injectable({ providedIn: 'root' })
 
 export class CharacterService {
-  readonly endpoint = 'https://rickandmortyapi.com/api/character';
 
-  constructor(private http: HttpClient) {}
 
-  getAllCharacters(): Observable<Character[]> {
-    return this.http.get<{ results: Character[] }>
-      ('https://rickandmortyapi.com/api/character/')
-        .pipe(map(response => response.results));
+  constructor( private readonly charactersRepository: CharactersRepository) {}
+
+  //método para requisição de todos os personagens
+  getAllCharacters(): Observable<Results> {
+    return this.charactersRepository.getCharacters()
+      .pipe(take(1));
   }
+
 
 }
