@@ -4,9 +4,17 @@
   background-color: rgb(66, 66, 66);
   border-radius: 10px;
 
+
   img {
+    display: block;
     width: 180px;
     border-radius: 10px 0px 0px 10px;
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
   }
 
   .card-content{
