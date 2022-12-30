@@ -12,6 +12,5 @@ export class CharacterCardComponent {
   @Input() character!: Character;
 
 
-
 }
 

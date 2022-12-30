@@ -1,6 +1,6 @@
 .card {
   display: flex;
-  background-color: rgb(27, 27, 27);
+  background-color: rgb(56, 56, 56);
   border-radius: 10px;
 
   img {
@@ -13,6 +13,17 @@
     width: 100%;
     padding: 15px 20px;
 
+    .info {
+      div:first-child{
+        margin-bottom: 6px;
+        font-size: 15px;
+        color: #ccc
+      }
+      &:first-of-type {
+        margin-bottom: 15px;
+      }
+    }
+
     .titleName{
       font-size: 22px;
       font-weight: bold;
@@ -22,6 +33,7 @@
     .status{
       display: flex;
       align-items: center;
+      margin-bottom: 12px;
 
       .ball {
         margin-right: 10px;
