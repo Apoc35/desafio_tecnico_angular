@@ -1,7 +1,8 @@
-<app-header></app-header>
 <app-container>
   <div class="columns">
-    <app-character-card (clickCharacter)="getOneCharacter()" *ngFor="let character of characters" [character]="character"></app-character-card>
+    <app-character-card
+      (clickCharacter)="getOneCharacter()"
+      *ngFor="let character of characters" [character]="character">
+    </app-character-card>
   </div>
 </app-container>
-

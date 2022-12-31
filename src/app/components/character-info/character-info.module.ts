@@ -1,15 +1,16 @@
+import { ContainerModule } from './../../shared/container/container.module';
 import { CharacterInfoRoutingModule } from './character-info.routing.module';
-import { ContainerComponent } from './../../shared/container/container.component';
 import { CharacterInfoComponent } from './character-info.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 
 @NgModule({
-  declarations: [CharacterInfoComponent, ContainerComponent],
+  declarations: [CharacterInfoComponent],
   imports: [
     CommonModule,
-    CharacterInfoRoutingModule
+    CharacterInfoRoutingModule,
+    ContainerModule
   ],
   exports: [
     CharacterInfoComponent,

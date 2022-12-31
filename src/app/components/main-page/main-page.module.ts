@@ -1,3 +1,4 @@
+import { HeaderModule } from './../../shared/header/header.module';
 import { MainPageComponent } from './main-page.component';
 
 import { NgModule } from '@angular/core';
@@ -10,7 +11,8 @@ import {RouterModule} from '@angular/router';
   imports: [
     RouterModule,
     CommonModule,
-    MainPageRoutingModule
+    MainPageRoutingModule,
+    HeaderModule
   ],
   exports: [
     MainPageComponent
