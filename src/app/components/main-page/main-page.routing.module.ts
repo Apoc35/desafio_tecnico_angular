@@ -9,7 +9,13 @@ const routes: Routes = [
     pathMatch: 'full',
     loadChildren: () => import('../home/home.module').then((m) => m.HomeComponentModule)
   },
-
+  {
+    path: 'character-info',
+    pathMatch: 'full',
+    loadChildren: () => import('./../character-info/character-info.routing.module').then(
+        (m) => m.CharacterInfoModule
+    ),
+  },
 ];
 
 @NgModule({

@@ -2,6 +2,7 @@ import { CharacterService } from 'src/app/services/character.service';
 import { take } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Character } from 'src/app/models/character.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,10 @@ export class HomeComponent implements OnInit {
 
   public characters: Character[] = [];
 
-  constructor(private characterService: CharacterService) { }
+  constructor(
+    private characterService: CharacterService,
+    private readonly router: Router
+  ) {}
 
   ngOnInit(): void {
     this.characterService.getAllCharacters()
@@ -20,6 +24,10 @@ export class HomeComponent implements OnInit {
     .subscribe(response => {
       this.characters = response.results;
     });
+  }
+
+  public getOneCharacter() {
+    void this.router.navigate(['character-info']);
   }
 
 }

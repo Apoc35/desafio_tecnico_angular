@@ -11,7 +11,10 @@ export class CharacterService {
 
   constructor( private readonly charactersRepository: CharactersRepository) {}
 
-  //método para requisição de todos os personagens
+  /**
+   *
+   * @returns Retorna observable de results
+   */
   getAllCharacters(): Observable<Results> {
     return this.charactersRepository.getCharacters()
       .pipe(take(1));
