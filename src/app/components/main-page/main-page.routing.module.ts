@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: 'character-info',
     pathMatch: 'full',
-    loadChildren: () => import('./../character-info/character-info.routing.module').then(
+    loadChildren: () => import('./../character-info/character-info.module').then(
         (m) => m.CharacterInfoModule
     ),
   },
