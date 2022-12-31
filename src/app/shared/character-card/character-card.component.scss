@@ -4,7 +4,6 @@
   background-color: rgb(66, 66, 66);
   border-radius: 10px;
 
-
   img {
     display: block;
     width: 180px;
@@ -17,11 +16,10 @@
     }
   }
 
-  .card-content{
+  .card-content {
     color: white;
     width: 100%;
     padding: 15px 20px;
-
 
     .info {
       div:first-child{
@@ -34,13 +32,15 @@
       }
     }
 
-    .titleName{
+    .titleName {
+      display: flex;
+      cursor: pointer;
       font-size: 22px;
       font-weight: bold;
       margin-bottom: 15px;
     }
 
-    .status{
+    .status {
       display: flex;
       align-items: center;
       margin-bottom: 12px;
@@ -61,11 +61,4 @@
       }
     }
   }
-
-
-
-
-
-
-
 }

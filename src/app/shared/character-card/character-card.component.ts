@@ -1,5 +1,5 @@
 import { Character } from 'src/app/models/character.model';
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 
 @Component({
@@ -10,7 +10,11 @@ import { Component, Input } from '@angular/core';
 export class CharacterCardComponent {
 
   @Input() character!: Character;
+  @Output() clickCharacter = new EventEmitter<undefined>();
 
+  public OnClickCharacter(): void {
+    this.clickCharacter.emit();
+  }
 
 }
 
