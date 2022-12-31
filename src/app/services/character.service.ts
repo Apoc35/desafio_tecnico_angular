@@ -20,5 +20,9 @@ export class CharacterService {
       .pipe(take(1));
   }
 
+  getSingleCharacter(id: number): Observable<Results> {
+    return this.charactersRepository.getSingleCharacter(id)
+      .pipe(take(1));
+  }
 
 }

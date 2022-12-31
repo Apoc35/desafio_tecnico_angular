@@ -19,4 +19,9 @@ export class CharactersRepository {
     ('https://rickandmortyapi.com/api/character/')
   }
 
+  public getSingleCharacter(character: number):Observable<Results>{
+    return this.httpClient.get<Results>
+    (`https://rickandmortyapi.com/api/character/${character}`)
+  }
+
 }
