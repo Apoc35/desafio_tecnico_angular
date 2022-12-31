@@ -1,3 +1,4 @@
+import { Character } from 'src/app/models/character.model';
 import { Observable } from 'rxjs';
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
@@ -19,8 +20,8 @@ export class CharactersRepository {
     ('https://rickandmortyapi.com/api/character/')
   }
 
-  public getSingleCharacter(character: number):Observable<Results>{
-    return this.httpClient.get<Results>
+  public getSingleCharacter(character: number):Observable<Character>{
+    return this.httpClient.get<Character>
     (`https://rickandmortyapi.com/api/character/${character}`)
   }
 

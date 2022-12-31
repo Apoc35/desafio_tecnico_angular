@@ -26,7 +26,10 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  public getOneCharacter() {
+  public getOneCharacter(character: Character) {
+    this.characterService.getSingleCharacter(character.id).pipe(take(1)).subscribe((response) => {
+      this.characterService.addCharacter(response);
+    });
     void this.router.navigate(['character-info']);
   }
 

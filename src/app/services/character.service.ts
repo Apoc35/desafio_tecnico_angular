@@ -1,5 +1,6 @@
+import { Character } from 'src/app/models/character.model';
 import { CharactersRepository } from './../repository/character.repository';
-import { take } from 'rxjs';
+import { ReplaySubject, take } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Results } from '../models/results.model';
@@ -8,6 +9,7 @@ import { Results } from '../models/results.model';
 
 export class CharacterService {
 
+  public readonly $characterData = new ReplaySubject<Character>(1);
 
   constructor( private readonly charactersRepository: CharactersRepository) {}
 
@@ -20,9 +22,11 @@ export class CharacterService {
       .pipe(take(1));
   }
 
-  getSingleCharacter(id: number): Observable<Results> {
+  getSingleCharacter(id: number): Observable<Character> {
     return this.charactersRepository.getSingleCharacter(id)
       .pipe(take(1));
   }
-
+  public addCharacter(characterResponse: Character) {
+    this.$characterData.next(characterResponse);
+  }
 }

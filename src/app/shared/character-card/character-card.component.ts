@@ -10,10 +10,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class CharacterCardComponent {
 
   @Input() character!: Character;
-  @Output() clickCharacter = new EventEmitter<undefined>();
+  @Output() clickCharacter = new EventEmitter<Character>();
 
   public OnClickCharacter(): void {
-    this.clickCharacter.emit();
+    this.clickCharacter.emit(this.character);
   }
 
 }
