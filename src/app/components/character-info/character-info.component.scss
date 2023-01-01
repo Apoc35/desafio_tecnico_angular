@@ -1,19 +1,13 @@
 .card {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
   height: 100%;
-  background-color: rgb(66, 66, 66);
-  border-radius: 10px;
+  padding: 30px 0px;
 
   img {
+    width: 100%;
     display: block;
-    width: 300px;
-    border-radius: 10px 0px 0px 10px;
-    transition: transform 0.2s ease-in-out;
-
-    &:hover {
-      transform: scale(1.05);
-      cursor: pointer;
-    }
+    border-radius: 10px;
   }
 
   .card-content {
@@ -21,31 +15,36 @@
     width: 100%;
     padding: 15px 20px;
 
+    .card-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+
     .info {
+      margin-bottom: 10px;
+
       div:first-child{
         margin-bottom: 6px;
-        font-size: 15px;
-        color: #ccc
-      }
-      &:first-of-type {
-        margin-bottom: 15px;
+        font-size: 25px;
+        color: #ccc;
       }
 
-      .infogender {
-        margin-bottom: 6px;
-        padding-bottom: 10px;
+      div:last-child {
+        font-size: 20px;
       }
+    }
     }
 
     .titleName {
       display: flex;
-      font-size: 22px;
+      font-size: 40px;
       font-weight: bold;
+      margin-top: 0;
       margin-bottom: 15px;
     }
 
     .status {
       display: flex;
+      font-size: 25px;
       align-items: center;
       margin-bottom: 12px;
 
@@ -66,5 +65,3 @@
     }
   }
 }
-
-
