@@ -1,3 +1,4 @@
+import { FooterModule } from './../../shared/footer/footer.module';
 import { ContainerModule } from './../../shared/container/container.module';
 import { CharacterCardComponent } from './../../shared/character-card/character-card.component';
 import { HomeComponent } from './home.component';
@@ -10,7 +11,8 @@ import { HomeRoutingModule } from './home.routing.module';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    ContainerModule
+    ContainerModule,
+    FooterModule
   ],
   exports: [
     HomeComponent

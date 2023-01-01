@@ -1,26 +1,30 @@
-<app-container>
+<app-container *ngIf="character">
   <div class="card">
     <img [src]='character.image' alt="image">
     <div class="card-content">
-      <div class="titleName">{{ character.name }}</div>
+      <h2 class="titleName">{{ character.name }}</h2>
       <div class="status">
         <div class="ball"
         [ngClass]="{'alive': character.status === 'Alive', 'dead': character.status === 'Dead'}">
         </div>
         {{character.status}} - {{character.species}}
       </div>
-      <div>
+      <div class="card-info">
         <div class="info">
           <div>Last known location:</div>
           <div>{{character.location.name}}</div>
         </div>
-        <div class="infogender">
+        <div class="info">
           <div>Gender:</div>
           <div>{{character.gender}}</div>
         </div>
         <div class="info">
-          <div>First seen in:</div>
+          <div>Origin:</div>
           <div>{{character.origin.name}}</div>
+        </div>
+        <div class="info">
+          <div>Created at:</div>
+          <div>{{character.created}}</div>
         </div>
       </div>
     </div>

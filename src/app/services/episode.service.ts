@@ -17,6 +17,4 @@ export class EpisodeService {
     return this.episodesRepository.getCharacters()
       .pipe(take(1));
   }
-
-
 }

@@ -13,20 +13,7 @@ import { Component, OnInit } from '@angular/core';
 export class CharacterInfoComponent implements OnInit {
 
   public $character = this.characterService.$characterData.asObservable();
-  public character: Character = {
-    id: 0,
-    name: '',
-    status: '',
-    species: '',
-    type: '',
-    gender: '',
-    origin: { name: '', url: '' },
-    location: { id: 0, name: '' },
-    episode: [],
-    image: '',
-    url: '',
-    created: ''
-  };
+  public character!: Character;
 
   constructor(
     private readonly characterService: CharacterService,
@@ -37,4 +24,5 @@ export class CharacterInfoComponent implements OnInit {
       this.character = value;
     })
   }
+
 }
