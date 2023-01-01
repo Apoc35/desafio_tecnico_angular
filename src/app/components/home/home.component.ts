@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
     .pipe(take(1))
     .subscribe(response => {
       this.characters = response.results;
+      console.log(response);
     });
   }
 
@@ -32,5 +33,4 @@ export class HomeComponent implements OnInit {
     });
     void this.router.navigate(['character-info']);
   }
-
 }
