@@ -21,7 +21,6 @@ export class FooterComponent {
     });
   }
 
-
   createArray(): number[] {
     return Array.from(Array(this.pageNumber).keys()).map(i => i + 1);
   }
