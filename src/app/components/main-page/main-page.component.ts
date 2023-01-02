@@ -15,7 +15,9 @@ export class MainPageComponent {
   public getHomeClick(): void {
     void this.router.navigate(['home']);
   }
-
+  /**
+   * Chamada de todos os personagens na API para o home.
+   */
   ngOnInit(): void {
     this.characterService.getAllCharacters();
   }
