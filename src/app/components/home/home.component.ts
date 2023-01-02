@@ -1,6 +1,6 @@
 import { CharacterService } from 'src/app/services/character.service';
-import { take } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
+import { Subject, take, takeUntil } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Character } from 'src/app/models/character.model';
 import { Router } from '@angular/router';
 
@@ -9,9 +9,12 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
   public characters: Character[] = [];
+
+  public $results = this.characterService.$resultData.asObservable();
+  private onDestroy = new Subject<void>();
 
   constructor(
     private characterService: CharacterService,
@@ -22,9 +25,11 @@ export class HomeComponent implements OnInit {
     this.characterService.getAllCharacters()
     .pipe(take(1))
     .subscribe(response => {
-      this.characters = response.results;
-      console.log(response);
+      this.characterService.addResults(response);
     });
+    this.$results.pipe(takeUntil(this.onDestroy)).subscribe((value) => {
+      this.characters = value.results;
+    })
   }
 
   public getOneCharacter(character: Character) {
@@ -33,4 +38,10 @@ export class HomeComponent implements OnInit {
     });
     void this.router.navigate(['character-info']);
   }
+
+  public ngOnDestroy() {
+    this.onDestroy.next(void 0);
+    this.onDestroy.complete();
+  }
+
 }

@@ -10,6 +10,7 @@ import { Results } from '../models/results.model';
 export class CharacterService {
 
   public readonly $characterData = new ReplaySubject<Character>(1);
+  public readonly $resultData = new ReplaySubject<Results>(1);
 
   constructor( private readonly charactersRepository: CharactersRepository) {}
 
@@ -28,5 +29,8 @@ export class CharacterService {
   }
   public addCharacter(characterResponse: Character) {
     this.$characterData.next(characterResponse);
+  }
+  public addResults(resultResponse: Results) {
+    this.$resultData.next(resultResponse);
   }
 }
