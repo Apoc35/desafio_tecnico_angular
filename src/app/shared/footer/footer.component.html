@@ -2,10 +2,8 @@
   <footer>
     <ul>
       <li *ngFor="let i of createArray()">
-        <a href="">{{i}}</a>
+        <a (click)="changeCharacter(i)">{{i}}</a>
       </li>
     </ul>
   </footer>
 </app-container>
-{{ pageNumber }}
-

@@ -25,4 +25,8 @@ export class CharactersRepository {
     (`https://rickandmortyapi.com/api/character/${character}`)
   }
 
+  public getCharactersByPage(pageNumber: number):Observable<Results>{
+    return this.httpClient.get<Results>
+    (`https://rickandmortyapi.com/api/character/?page=${pageNumber}`)
+  }
 }

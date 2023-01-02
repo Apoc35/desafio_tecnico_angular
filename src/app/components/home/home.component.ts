@@ -22,12 +22,14 @@ export class HomeComponent implements OnInit, OnDestroy {
     private readonly router: Router
   ) {}
 
+  /**
+   * Aqui ele chama o service getAllCharacters que é responsável por fazer a requisição HTTP se comunicando com o repository.
+   * Depois que o repository retorna um response, o service salva o valor no ReplaySubject.
+   * Depois na variável $results é observado toda a mudança até que o componente seja destruido por causa da paginação.
+   */
   ngOnInit(): void {
-    this.characterService.getAllCharacters()
-    .pipe(take(1))
-    .subscribe(response => {
-      this.characterService.addResults(response);
-    });
+     // Aqui ele escuta as mudanças da paginação dos personagens até destruir o componente
+    this.characterService.getAllCharacters();
     this.$results.pipe(takeUntil(this.onDestroy)).subscribe((value) => {
       this.characters = value.results;
       this.pages = value.info.pages;

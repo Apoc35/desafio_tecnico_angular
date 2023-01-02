@@ -18,19 +18,26 @@ export class CharacterService {
    *
    * @returns Retorna observable de results
    */
-  getAllCharacters(): Observable<Results> {
-    return this.charactersRepository.getCharacters()
-      .pipe(take(1));
+  public getAllCharacters(): void {
+    this.charactersRepository.getCharacters()
+      .pipe(take(1)).subscribe(response => {
+        this.addResults(response);
+      });
   }
 
-  getSingleCharacter(id: number): Observable<Character> {
+  public getSingleCharacter(id: number): Observable<Character> {
     return this.charactersRepository.getSingleCharacter(id)
       .pipe(take(1));
   }
-  public addCharacter(characterResponse: Character) {
+  public addCharacter(characterResponse: Character): void {
     this.$characterData.next(characterResponse);
   }
-  public addResults(resultResponse: Results) {
+  public addResults(resultResponse: Results): void {
     this.$resultData.next(resultResponse);
+  }
+
+  public getPages(pageNumber: number): Observable<Results> {
+    return this.charactersRepository.getCharactersByPage(pageNumber)
+      .pipe(take(1));
   }
 }
