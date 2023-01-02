@@ -11,6 +11,8 @@ export class FooterComponent {
 
   @Input() pageNumber!: number;
 
+  public currentPage: number = 1;
+
   constructor( private characterService: CharacterService ) {}
 
   public changeCharacter(page: number) {
@@ -18,6 +20,7 @@ export class FooterComponent {
       .pipe(take(1))
       .subscribe(response => {
         this.characterService.addResults(response);
+        this.currentPage = page;
     });
   }
 

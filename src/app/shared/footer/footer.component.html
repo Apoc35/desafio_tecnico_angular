@@ -1,5 +1,6 @@
 <app-container>
   <footer>
+    <div class="pagination">Página {{currentPage}} de {{pageNumber}}</div>
     <ul>
       <li *ngFor="let i of createArray()">
         <a (click)="changeCharacter(i)">{{i}}</a>

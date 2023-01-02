@@ -28,8 +28,7 @@ export class HomeComponent implements OnInit, OnDestroy {
    * Depois na variável $results é observado toda a mudança até que o componente seja destruido por causa da paginação.
    */
   ngOnInit(): void {
-     // Aqui ele escuta as mudanças da paginação dos personagens até destruir o componente
-    this.characterService.getAllCharacters();
+
     this.$results.pipe(takeUntil(this.onDestroy)).subscribe((value) => {
       this.characters = value.results;
       this.pages = value.info.pages;
