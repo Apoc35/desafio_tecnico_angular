@@ -1,16 +1,11 @@
 <app-container>
   <footer>
     <ul>
-      <li>
-        <a href="">1</a>
-      </li>
-      <li>
-        <a href="">2</a>
-      </li>
-      <li>
-        <a href="">3</a>
+      <li *ngFor="let i of createArray()">
+        <a href="">{{i}}</a>
       </li>
     </ul>
   </footer>
 </app-container>
+{{ pageNumber }}
 

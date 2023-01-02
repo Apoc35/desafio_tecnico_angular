@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit, OnDestroy {
 
   public characters: Character[] = [];
+  public pages: number = 0;
 
   public $results = this.characterService.$resultData.asObservable();
   private onDestroy = new Subject<void>();
@@ -29,6 +30,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
     this.$results.pipe(takeUntil(this.onDestroy)).subscribe((value) => {
       this.characters = value.results;
+      this.pages = value.info.pages;
     })
   }
 

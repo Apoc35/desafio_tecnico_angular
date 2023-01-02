@@ -1,5 +1,6 @@
-import { Character } from './../../models/character.model';
-import { Component, OnInit, Input } from '@angular/core';
+import { takeUntil } from 'rxjs';
+import { CharacterService } from 'src/app/services/character.service';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -8,10 +9,16 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  @Input() character!: Character;
+  @Input() pageNumber!: number;
 
-  constructor() { }
+
+  constructor( private characterService: CharacterService ) { }
 
   ngOnInit(): void {
+
+  }
+
+  createArray(): number[] {
+    return Array.from(Array(this.pageNumber).keys()).map(i => i + 1);
   }
 }
