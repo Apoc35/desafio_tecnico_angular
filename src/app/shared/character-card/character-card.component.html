@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" *ngIf="character">
   <img [src]='character.image'(click)='OnClickCharacter()' [alt]="character.name">
   <div class="card-content">
     <a class="titleName" (click)='OnClickCharacter()'>{{ character.name }}</a>
