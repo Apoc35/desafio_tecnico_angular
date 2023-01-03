@@ -1,6 +1,8 @@
 header {
   display: flex;
   img {
+    max-width: 400px;
+    width: 100%;
     cursor: pointer;
   }
 
