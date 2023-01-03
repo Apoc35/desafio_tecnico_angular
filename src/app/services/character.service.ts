@@ -54,7 +54,7 @@ export class CharacterService {
   /**
    * Retorna o número de páginas e personagens por página.
    * @param pageNumber Número de páginas no total
-   * @returns
+   * @returns Retorna observable de results.
    */
   public getPages(pageNumber: number): Observable<Results> {
     return this.charactersRepository.getCharactersByPage(pageNumber)
