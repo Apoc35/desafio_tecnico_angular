@@ -4,11 +4,11 @@ Projeto feito com Angular 14 usando as informações da API da série "Rick and 
 
 De início no projeto, eu usaria o ngTemplate mas o projeto foi criado do zero depois conforme os requisitos abaixo:
 
-● Criar seu próprio template utilizando sua criatividade;
-● Paginação;
-● Responsividade;
-● Testes unitários;
-● Comentários ao longo do código descrevendo as funcionalidades;
+1. Criar seu próprio template utilizando sua criatividade;
+2. Paginação;
+3. Responsividade;
+4. Testes unitários;
+5. Comentários ao longo do código descrevendo as funcionalidades;
 
 # Link para visualização do projeto:
 
