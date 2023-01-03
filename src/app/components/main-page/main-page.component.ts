@@ -12,8 +12,11 @@ export class MainPageComponent {
   constructor( private readonly router: Router,
     private characterService: CharacterService ) {}
 
+  /**
+   * Evento de clique fazendo com que volte para a página home.
+   */
   public getHomeClick(): void {
-    void this.router.navigate(['home']);
+    void this.router.navigate(['']);
   }
   /**
    * Chamada de todos os personagens na API para o home.

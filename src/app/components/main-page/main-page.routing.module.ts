@@ -5,7 +5,7 @@ import {Routes, RouterModule} from "@angular/router";
 // lazy loading
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     pathMatch: 'full',
     loadChildren: () => import('../home/home.module').then((m) => m.HomeComponentModule)
   },

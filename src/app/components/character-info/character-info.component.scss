@@ -4,6 +4,10 @@
   height: 100%;
   padding: 30px 0px;
 
+  @media (max-width: 900px) {
+    grid-template-columns: 300px;
+  }
+
   img {
     width: 100%;
     display: block;

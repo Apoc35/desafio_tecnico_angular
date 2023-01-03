@@ -12,6 +12,9 @@ export class CharacterCardComponent {
   @Input() character!: Character;
   @Output() clickCharacter = new EventEmitter<Character>();
 
+  /**
+   * Emissão de evento para o componente pai (character-info).
+   */
   public OnClickCharacter(): void {
     this.clickCharacter.emit(this.character);
   }

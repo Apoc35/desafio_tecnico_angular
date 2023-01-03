@@ -15,6 +15,10 @@ export class FooterComponent {
 
   constructor( private characterService: CharacterService ) {}
 
+  /**
+   * Retorna os personagens da página clicada.
+   * @param page Número da página.
+   */
   public changeCharacter(page: number) {
     this.characterService.getPages(page)
       .pipe(take(1))
@@ -24,6 +28,10 @@ export class FooterComponent {
     });
   }
 
+  /**
+   * Lógica para a criação da paginação dinamicamente.
+   * @returns
+   */
   createArray(): number[] {
     return Array.from(Array(this.pageNumber).keys()).map(i => i + 1);
   }

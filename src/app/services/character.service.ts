@@ -25,17 +25,37 @@ export class CharacterService {
       });
   }
 
+  /**
+   * Retorna observable de characters
+   * @param id Id do personagem clicado no HTML
+   * @returns Retorna o personagem com o ID específico.
+   */
   public getSingleCharacter(id: number): Observable<Character> {
     return this.charactersRepository.getSingleCharacter(id)
       .pipe(take(1));
   }
+
+  /**
+   * Retorna o personagem quando $characterData é assinado.
+   * @param characterResponse Objeto do tipo Character.
+   */
   public addCharacter(characterResponse: Character): void {
     this.$characterData.next(characterResponse);
   }
+
+  /**
+   *  Retorna a página quando $resultData é assinado.
+   * @param resultResponse Objeto do tipo Results.
+   */
   public addResults(resultResponse: Results): void {
     this.$resultData.next(resultResponse);
   }
 
+  /**
+   * Retorna o número de páginas e personagens por página.
+   * @param pageNumber Número de páginas no total
+   * @returns
+   */
   public getPages(pageNumber: number): Observable<Results> {
     return this.charactersRepository.getCharactersByPage(pageNumber)
       .pipe(take(1));
